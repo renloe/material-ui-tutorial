@@ -10,9 +10,10 @@ import { AutocompleteComponent } from './component/autocomplete/autocomplete.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenubarComponent } from './component/menubar/menubar.component';
 import { HomeComponent } from './component/home/home.component';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, InputComponent, AutocompleteComponent, MenubarComponent, HomeComponent],
+  declarations: [AppComponent, InputComponent, AutocompleteComponent, MenubarComponent, HomeComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
