@@ -12,16 +12,28 @@ import { MenubarComponent } from './component/menubar/menubar.component';
 import { HomeComponent } from './component/home/home.component';
 import { CardComponent } from './component/card/card.component';
 import { SliderComponent } from './component/slider/slider.component';
+import { TableComponent } from './component/table/table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, InputComponent, AutocompleteComponent, MenubarComponent, HomeComponent, CardComponent, SliderComponent],
+  declarations: [
+    AppComponent,
+    InputComponent,
+    AutocompleteComponent,
+    MenubarComponent,
+    HomeComponent,
+    CardComponent,
+    SliderComponent,
+    TableComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
