@@ -15,6 +15,8 @@ import { SliderComponent } from './component/slider/slider.component';
 import { TableComponent } from './component/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormdesignComponent } from './component/formdesign/formdesign.component';
+import { PopupComponent } from './component/popup/popup.component';
+import { AssociateComponent } from './component/associate/associate.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { FormdesignComponent } from './component/formdesign/formdesign.component
     SliderComponent,
     TableComponent,
     FormdesignComponent,
+    PopupComponent,
+    AssociateComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,8 @@ import { Customer } from '../customer';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-table',
@@ -17,7 +19,11 @@ export class TableComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: MasterService) {
+  constructor(private service: MasterService, private dialog: MatDialog) {
+    this.loadCustomer();
+  }
+
+  loadCustomer() {
     this.service.getCustomer().subscribe({
       next: (res) => {
         this.customerList = res;
@@ -31,5 +37,29 @@ export class TableComponent {
   filterChange(data: Event) {
     const value = (data.target as HTMLInputElement).value;
     this.dataSource.filter = value;
+  }
+
+  editCustomer(code: any) {
+    this.openPopup(code, 'Edit Customer');
+  }
+
+  addCustomer() {
+    this.openPopup(0, 'Add Customer');
+  }
+
+  openPopup(code: any, title: any) {
+    let popup = this.dialog.open(PopupComponent, {
+      width: '40%',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+      data: {
+        title: title,
+        code: code,
+      },
+    });
+
+    popup.afterClosed().subscribe((item) => {
+      this.loadCustomer();
+    });
   }
 }

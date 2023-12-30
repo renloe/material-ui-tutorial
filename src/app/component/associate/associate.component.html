@@ -1,0 +1,42 @@
+<form [formGroup]="myform" (ngSubmit)="saveAssociate()">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Associate</mat-label>
+        <mat-select formControlName="id">
+          <mat-option
+            *ngFor="let associate of associates"
+            [value]="associate.id"
+            >{{ associate.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <a (click)="addAddress()" mat-raised-button color="primary">
+        Add Address
+      </a>
+      <div formArrayName="address">
+        <mat-card
+          *ngFor="let item of getAddress.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <mat-card-content>
+            <h1>Address = {{ i + 1 }}</h1>
+            <mat-form-field class="mat-50">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" />
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+              <mat-label>Country</mat-label>
+              <input matInput formControlName="country" />
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="fullAddress" />
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div formArrayName="address"></div>
+    </mat-card-content>
+  </mat-card>
+</form>

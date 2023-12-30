@@ -23,4 +23,20 @@ export class MasterService {
   getCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>('http://localhost:3000/customer');
   }
+
+  saveCustomer(data: any) {
+    return this.http.post('http://localhost:3000/customer', data);
+  }
+
+  getCustomerByCode(code: any) {
+    return this.http.get('http://localhost:3000/customer/' + code);
+  }
+
+  getAssociates() {
+    return this.http.get('http://localhost:3000/associate');
+  }
+
+  getAssociateByCode(code: any) {
+    return this.http.get('http://localhost:3000/associate/' + code);
+  }
 }
